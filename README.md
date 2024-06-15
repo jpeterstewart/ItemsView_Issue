@@ -1,4 +1,4 @@
-### This project illustrates a few issues with ItemsView and ListView and makes it easy to reproduce some bugs. You can easily add more items to the views and see the result directly.
+### This small app illustrates a few issues with ItemsView and ListView and makes it easy to reproduce some bugs. You can easily add more items to the views and see the result directly.
 
 #### ItemsView improves on ListView in that it doesn't have all the unnecessary padding between items. However, it has the following problems:
 
