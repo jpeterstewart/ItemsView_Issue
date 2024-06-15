@@ -56,6 +56,15 @@ namespace ItemsView_Issue
                     case "Increment1_100000":
                         AddToList(ListSelector.Left, 100000);
                         break;
+                    case "Clear2":
+                        RightList.Clear();
+                        break;
+                    case "Increment2_1":
+                        AddToList(ListSelector.Right, 1);
+                        break;
+                    case "Increment2_10":
+                        AddToList(ListSelector.Right, 10);
+                        break;
                     case "Increment2_100":
                         AddToList(ListSelector.Right, 100);
                         break;
