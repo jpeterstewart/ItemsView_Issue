@@ -1,18 +1,15 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.ObjectModel;
-using System.Diagnostics.Metrics;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace ItemsView_Issue
 {
-    /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class MainWindow : Window
     {
+        const char fillChar = '_';
+        const int fillLen = 100;
+
         enum ListSelector { Left, Right }
         internal static ObservableCollection<SimpleItemData> LeftList = [];
         internal static ObservableCollection<SimpleItemData> RightList = [];
@@ -20,6 +17,7 @@ namespace ItemsView_Issue
         public MainWindow()
         {
             this.InitializeComponent();
+            Title = "ItemsView and ListView Issues";
             LeftSide.ItemsSource = LeftList;
             RightSide.ItemsSource = RightList;
         }
@@ -39,15 +37,15 @@ namespace ItemsView_Issue
 
         private void AppBarButton_Click(object sender, RoutedEventArgs _)
         {
-            if (sender is Button b2)
+            if (sender is Button b)
             {
-                switch (b2.Name)
+                switch (b.Name)
                 {
                     case "Exit":
                         this.Close();
                         break;
                     case "Increment1_100":
-                        AddToList(ListSelector.Left);
+                        AddToList(ListSelector.Left, 100);
                         break;
                     case "Increment1_1000":
                         AddToList(ListSelector.Left, 1000);
@@ -59,7 +57,7 @@ namespace ItemsView_Issue
                         AddToList(ListSelector.Left, 100000);
                         break;
                     case "Increment2_100":
-                        AddToList(ListSelector.Right);
+                        AddToList(ListSelector.Right, 100);
                         break;
                     case "Increment2_1000":
                         AddToList(ListSelector.Right, 1000);
@@ -74,7 +72,7 @@ namespace ItemsView_Issue
             }
         }
 
-        private void AddToList(ListSelector selectedList, int size = 100)
+        private void AddToList(ListSelector selectedList, int size)
         {
 
             if (selectedList == ListSelector.Left)
@@ -94,7 +92,7 @@ namespace ItemsView_Issue
             int count = theList.Count;
             for (int i = 1; i <= newItems; i++)
             {
-                SimpleItemData item = new SimpleItemData(string.Format("This is item number{0} ", StringFill('_', 100)), count + i);
+                SimpleItemData item = new SimpleItemData(string.Format("This is item number{0} ", StringFill(fillChar, fillLen)), count + i);
                 theList.Add(item);
             }
         }
