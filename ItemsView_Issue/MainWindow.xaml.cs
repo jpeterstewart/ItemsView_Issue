@@ -1,6 +1,7 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Metrics;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -45,60 +46,62 @@ namespace ItemsView_Issue
                     case "Exit":
                         this.Close();
                         break;
-                    case "Populate1_100":
-                        PopulateList(ListSelector.Left);
+                    case "Increment1_100":
+                        AddToList(ListSelector.Left);
                         break;
-                    case "Populate1_1000":
-                        PopulateList(ListSelector.Left, 1000);
+                    case "Increment1_1000":
+                        AddToList(ListSelector.Left, 1000);
                         break;
-                    case "Populate1_10000":
-                        PopulateList(ListSelector.Left, 10000);
+                    case "Increment1_10000":
+                        AddToList(ListSelector.Left, 10000);
                         break;
-                    case "Populate1_100000":
-                        PopulateList(ListSelector.Left, 100000);
+                    case "Increment1_100000":
+                        AddToList(ListSelector.Left, 100000);
                         break;
-                    case "Populate2_100":
-                        PopulateList(ListSelector.Right);
+                    case "Increment2_100":
+                        AddToList(ListSelector.Right);
                         break;
-                    case "Populate2_1000":
-                        PopulateList(ListSelector.Right, 1000);
+                    case "Increment2_1000":
+                        AddToList(ListSelector.Right, 1000);
                         break;
-                    case "Populate2_10000":
-                        PopulateList(ListSelector.Right, 10000);
+                    case "Increment2_10000":
+                        AddToList(ListSelector.Right, 10000);
                         break;
-                    case "Populate2_100000":
-                        PopulateList(ListSelector.Right, 100000);
+                    case "Increment2_100000":
+                        AddToList(ListSelector.Right, 100000);
                         break;
                 }
             }
         }
 
-        private static void PopulateList(ListSelector selectedList, int size = 100)
+        private void AddToList(ListSelector selectedList, int size = 100)
         {
 
             if (selectedList == ListSelector.Left)
             {
-                LeftList.Clear();
-                FillList(ref LeftList, size);
+                AddItems(ref LeftList, size);
+                LeftBar.Text = string.Format("IntemsView ({0} items)", LeftList.Count);
             }
             else // if (whichList == ListSelector.Right)
             {
-                RightList.Clear();
-                FillList(ref RightList, size);
+                AddItems(ref RightList, size);
+                RightBar.Text = string.Format("ListView ({0} items)", RightList.Count);
             }
         }
 
-        private static void FillList(ref ObservableCollection<SimpleItemData> theList, int listSize)
+        private static void AddItems(ref ObservableCollection<SimpleItemData> theList, int newItems)
         {
-            for (int i = 1; i <= listSize; i++)
+            int count = theList.Count;
+            for (int i = 1; i <= newItems; i++)
             {
-                SimpleItemData item = new SimpleItemData("This is item number...................................................", i);
+                SimpleItemData item = new SimpleItemData(string.Format("This is item number{0} ", StringFill('_', 100)), count + i);
                 theList.Add(item);
             }
         }
 
-        // TODO: add +1000 function
-
-
+        private static string StringFill(char c, int len)
+        {
+            return new string(c, len);
+        }
     }
 }

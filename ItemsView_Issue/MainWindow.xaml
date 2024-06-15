@@ -12,11 +12,11 @@
         <Grid.Resources>
             <DataTemplate x:Key="FileItemViewTemplate" x:DataType="local:SimpleItemData">
                 <ItemContainer >
-                        <TextBlock FontSize="15" Text="{x:Bind ItemNameAndNumner, Mode=OneTime}" Margin="5,5,10,0" />
+                        <TextBlock FontSize="13" Text="{x:Bind ItemNameAndNumber, Mode=OneTime}" Margin="5,5,10,0" />
                 </ItemContainer>
             </DataTemplate>
             <DataTemplate x:Key="FileListViewTemplate" x:DataType="local:SimpleItemData">
-                <TextBlock Text="{x:Bind ItemNameAndNumner, Mode=OneTime}" x:Phase="1" Margin="1,0,10,0" />
+                <TextBlock FontSize="13" Text="{x:Bind ItemNameAndNumber, Mode=OneTime}" x:Phase="1" Margin="1,0,10,0" />
             </DataTemplate>        
         </Grid.Resources>
         <Grid.ColumnDefinitions>
@@ -60,26 +60,26 @@
         </ListView>
         <CommandBar Grid.Row="2" Grid.Column="0" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed" Name="LeftCommandBar" >
             <AppBarSeparator/>
-            <AppBarButton Icon="Folder" Label="Populate 100" Name="Populate1_100" Click="AppBarButton_Click" />
+            <AppBarButton Icon="Add" Label="Add 100" Name="Increment1_100" Click="AppBarButton_Click" />
             <AppBarSeparator/>
-            <AppBarButton Icon="Folder" Label="Populate 1,000" Name="Populate1_1000" Click="AppBarButton_Click" />
+            <AppBarButton Icon="Add" Label="Add 1,000" Name="Increment1_1000" Click="AppBarButton_Click" />
             <AppBarSeparator/>
-            <AppBarButton Icon="Folder" Label="Populate 10,000" Name="Populate1_10000" Click="AppBarButton_Click" />
+            <AppBarButton Icon="Add" Label="Add 10,000" Name="Increment1_10000" Click="AppBarButton_Click" />
             <AppBarSeparator/>
-            <AppBarButton Icon="Folder" Label="Populate 100,000" Name="Populate1_100000" Click="AppBarButton_Click" />
+            <AppBarButton Icon="Add" Label="Add 100,000" Name="Increment1_100000" Click="AppBarButton_Click" />
             <CommandBar.Content >
                 <TextBlock Name="LeftBar" Text="ItemsView" Margin="12,14" />
             </CommandBar.Content>
         </CommandBar>
         <CommandBar Grid.Row="2" Grid.Column="2" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed" Name="RightCommandBar">
             <AppBarSeparator/>
-            <AppBarButton Icon="Folder" Label="Populate 100"  Name="Populate2_100" Click="AppBarButton_Click" />
+            <AppBarButton Icon="Add" Label="Add 100"  Name="Increment2_100" Click="AppBarButton_Click" />
             <AppBarSeparator/>
-            <AppBarButton Icon="Folder" Label="Populate 1,000"  Name="Populate2_1000" Click="AppBarButton_Click" />
+            <AppBarButton Icon="Add" Label="Add 1,000"  Name="Increment2_1000" Click="AppBarButton_Click" />
             <AppBarSeparator/>
-            <AppBarButton Icon="Folder" Label="Populate 10,000"  Name="Populate2_10000" Click="AppBarButton_Click" />
+            <AppBarButton Icon="Add" Label="Add 10,000"  Name="Increment2_10000" Click="AppBarButton_Click" />
             <AppBarSeparator/>
-            <AppBarButton Icon="Folder" Label="Populate 100,000"  Name="Populate2_100000" Click="AppBarButton_Click" />
+            <AppBarButton Icon="Add" Label="Add 100,000"  Name="Increment2_100000" Click="AppBarButton_Click" />
             <CommandBar.Content>
                 <TextBlock Name="RightBar" Text="ListView" Margin="12,14"/>
             </CommandBar.Content>

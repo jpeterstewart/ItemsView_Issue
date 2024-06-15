@@ -16,8 +16,6 @@ namespace ItemsView_Issue
         {
         }
 
-        internal string ItemNameAndNumner { get { return itemname + itemnumber.ToString(); } }
-        internal string ItemName { get { return itemname + itemnumber.ToString(); } }
-        internal string ItemNumber { get { return itemnumber.ToString(); } }
+        internal string ItemNameAndNumber { get { return itemname + itemnumber.ToString(); } }
     }
 }
