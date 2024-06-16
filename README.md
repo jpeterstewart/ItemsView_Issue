@@ -8,5 +8,5 @@
 #### ListView is more stable and can quickly add 100,000 items or more. But it also has its problems:
 
 1) After adding a large number of items, it overflows the lower boundary of the list and continues to display list items down to the bottom edge of the app. On my computer, the limit seems to be 52,451 items, regardless of the item size. The ListView overflows after adding item number 52,452.
-2) I haven't been able to find a way to make the line spacing more compact so far.
+2) So far, I haven't found a way to make the line spacing more compact.
 
